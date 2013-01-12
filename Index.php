@@ -42,7 +42,7 @@ mysql_close();
 	$username = $_SESSION['username']; //Replace it for the session you have on your login system.
 	 mysql_connect($host, $user, $pass) or die("Error 3-".mysql_error());
 	mysql_select_db($authdb)or die("Error 2-".mysql_error());
-	
+
 	$select1 = mysql_query("SELECT * FROM account WHERE username = '$username'")or die("Error 4-".mysql_error());
 	$fetch1 = mysql_fetch_array($select1);
 	$id = mysql_real_escape_string($fetch1['id']);
@@ -53,18 +53,18 @@ mysql_close();
 <br><select name="my_chars">
 <?php
  mysql_connect($host, $user, $pass) or die("Error 5-".mysql_error());
-	
+
 mysql_select_db($chardb)or die("Error 6-".mysql_error());
-	
+
 $select2 = mysql_query("SELECT * FROM characters WHERE account = '$id' ")or die("Error 7-".mysql_error());
-	
+
 	while($row1=mysql_fetch_array($select2)){
-	
+
 	echo " <br><option align='center'>".$row1['name']."</option>";
-	
+
 	}
-	
-	
+
+
 
 	?>
 	</form>
@@ -74,17 +74,17 @@ $select2 = mysql_query("SELECT * FROM characters WHERE account = '$id' ")or die(
 <select name="submited_chars" value="submited">
 <?php
 
-	
-$select3= mysql_query("SELECT name FROM submited_chars")or die("Error 8-".mysql_error());
-	
-	while($row2=mysql_fetch_array($select3)){
-	
-	echo "<option align='center'>".$row2['name']."</option>";
-	
-	}
-	
 
-	
+$select3= mysql_query("SELECT name FROM submited_chars")or die("Error 8-".mysql_error());
+
+	while($row2=mysql_fetch_array($select3)){
+
+	echo "<option align='center'>".$row2['name']."</option>";
+
+	}
+
+
+
 	?>
 	
 	</select>
@@ -95,7 +95,7 @@ $select3= mysql_query("SELECT name FROM submited_chars")or die("Error 8-".mysql_
 </form>		
 		<?php
 		if(isset($_POST['propose'])){
-		
+
 		$my_chars = $_POST['my_chars'];
                 $submited_chars= $_POST['submited_chars'];
                 
@@ -107,8 +107,8 @@ $select3= mysql_query("SELECT name FROM submited_chars")or die("Error 8-".mysql_
                 echo "Your proposal was sucessfully sended";
                  
                 
-		
-		
+
+
 		}
 ?>
 <?php
@@ -118,35 +118,35 @@ print  "<select name='add_char'>";
 
 
 
-	
-$select4 = mysql_query("SELECT * FROM characters WHERE account = '$id' ")or die("Error 10-".mysql_error());
-	
-	while($row3=mysql_fetch_array($select4)){
-	
-	
-	
-	
-	echo " <br><option align='center'>".$row3['name']."</option>";
-	
-	}
-	
-	
 
-	
-	
-	
+$select4 = mysql_query("SELECT * FROM characters WHERE account = '$id' ")or die("Error 10-".mysql_error());
+
+	while($row3=mysql_fetch_array($select4)){
+
+
+
+
+	echo " <br><option align='center'>".$row3['name']."</option>";
+
+	}
+
+
+
+
+
+
 	print "</select>";
-	
-	
+
+
 	print "<input type='text' name='desc' placeholder='Description'>";
-		
-		
+
+
 print "<button name='sent2'>Send</button>";
 print  "</form>";
 	?>
 	<?php
 if(isset($_POST['sent2'])){
-		
+
 
 
 
@@ -162,7 +162,7 @@ $i = $rowe2['s_id'];
 
 if($i == $id){
 die("You already sent a character.");
-}else{
+}
 
 
 
@@ -249,10 +249,10 @@ $class = "Mage";
                 echo "Your character was sucessfully sended";
                  
                 
-	
+
 		}
-		
-		
+
+
 mysql_close();	
 	?>	
 	
@@ -264,7 +264,7 @@ mysql_close();
 
  mysql_connect($host, $user, $pass) or die("Error 15-".mysql_error());
 	mysql_select_db($authdb)or die("Error 2-".mysql_error());
-	
+
 	$select6 = mysql_query("SELECT * FROM account WHERE username = '$username'")or die("Error 16-".mysql_error());
 	$fetch6 = mysql_fetch_array($select6);
 	$id2 = mysql_real_escape_string($fetch6['id']);
@@ -272,25 +272,25 @@ mysql_close();
 mysql_close();
 
 mysql_connect($host, $user, $pass) or die("Error 17-".mysql_error());
-	
+
 mysql_select_db($chardb)or die("Error 18-".mysql_error());
 
 
 
 $select5 = mysql_query("SELECT * FROM char_proposal WHERE s_id ='$id2'")or die("Error 19-".mysql_error());
-	
-	while($row9=mysql_fetch_array($select5)){
-	
-	
-	
-	
-	echo " <br><option align='center'>".$row9['p_char']."</option>";
-	
-	}
-	
-	
 
-	
+	while($row9=mysql_fetch_array($select5)){
+
+
+
+
+	echo " <br><option align='center'>".$row9['p_char']."</option>";
+
+	}
+
+
+
+
 	?>
 
 
@@ -329,7 +329,7 @@ echo "You characters have been traded";
 
 
 }
-}
+
 ?>
 		
 </body>
