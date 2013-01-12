@@ -269,7 +269,7 @@ mysql_close();
 	$fetch6 = mysql_fetch_array($select6);
 	$id2 = mysql_real_escape_string($fetch6['id']);
 
-mysql_connect();
+mysql_close();
 
 mysql_connect($host, $user, $pass) or die("Error 17-".mysql_error());
 	
