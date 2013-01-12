@@ -161,7 +161,7 @@ $rowe2 = mysql_fetch_assoc($dada3);
 $i = $rowe2['s_id'];
 
 if($i == $id){
-die("You do not have that character on your account.");
+die("You already sent a character.");
 }else{
 
 
